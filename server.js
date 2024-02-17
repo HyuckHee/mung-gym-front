@@ -9,7 +9,7 @@ app.set("port", process.env.PORT || 8080);
 app.use(express.static(path.join(__dirname, "/dist")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/dist/build/index.html"));
+  res.sendFile(path.join(__dirname, "/dist/index.html"));
 });
 
 app.listen(app.get("port"), () => {
