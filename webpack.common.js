@@ -14,9 +14,13 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 
 
 const config = {
-    entry: './src/index.js',
+    entry: {
+      app: './src/index.js'
+    },
     output: {
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
+        clean: true,
     },
     devServer: {
         client: {
@@ -28,20 +32,20 @@ const config = {
             },
           },
         static: {
-            directory: path.join(__dirname, 'public'),
+            directory: path.join(__dirname, './dist'),
           },
         compress: true,
         host: 'localhost',
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'public/index.html',
+            template: './public/index.html',
             filename: "index.html",
-            favicon: "public/favicon.ico"
+            favicon: "./public/favicon.ico"
         }),
         new FaviconsWebpackPlugin({
-            logo: 'public/logo192.png',
-            manifest: 'public/manifest.json',
+            logo: './public/logo192.png',
+            manifest: './public/manifest.json',
           }),
 
         
